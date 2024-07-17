@@ -10,40 +10,50 @@ class CustomDarwer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const CustomScrollView(
-      slivers: [
-        SliverToBoxAdapter(
-          child: UserInfoListTile(
-              image: Assets.imagesAvatar1,
-              title: 'Lekan Okeowo',
-              subtitle: 'demo@gmail.com'),
-        ),
-        SliverToBoxAdapter(
-          child: SizedBox(
-            height: 8,
+    return Container(
+      color: Colors.white,
+      child: const CustomScrollView(
+        slivers: [
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: EdgeInsets.only(right: 20, left: 28, top: 8, bottom: 8),
+              child: UserInfoListTile(
+                  image: Assets.imagesAvatar1,
+                  title: 'Lekan Okeowo',
+                  subtitle: 'demo@gmail.com'),
+            ),
           ),
-        ),
-        DrawerItemListview(),
-        SliverFillRemaining(
-          hasScrollBody: false,
-          child: Column(
-            children: [
-              Expanded(child: SizedBox()),
-              InActiveListTile(
-                  drawerItemModel: DrawerItemModel(
-                      image: Assets.imagesSetting2, title: 'Setting system')),
-              InActiveListTile(
-                  drawerItemModel: DrawerItemModel(
-                      image: Assets.imagesLogout, title: 'Logout account')),
-            ],
+          SliverToBoxAdapter(
+            child: SizedBox(
+              height: 8,
+            ),
           ),
-        ),
-        SliverToBoxAdapter(
-          child: SizedBox(
-            height: 48,
+          DrawerItemListview(),
+          SliverFillRemaining(
+            hasScrollBody: false,
+            child: Padding(
+              padding: EdgeInsets.only(left: 28),
+              child: Column(
+                children: [
+                  Expanded(child: SizedBox()),
+                  InActiveListTile(
+                      drawerItemModel: DrawerItemModel(
+                          image: Assets.imagesSetting2,
+                          title: 'Setting system')),
+                  InActiveListTile(
+                      drawerItemModel: DrawerItemModel(
+                          image: Assets.imagesLogout, title: 'Logout account')),
+                ],
+              ),
+            ),
           ),
-        )
-      ],
+          SliverToBoxAdapter(
+            child: SizedBox(
+              height: 48,
+            ),
+          )
+        ],
+      ),
     );
   }
 }
