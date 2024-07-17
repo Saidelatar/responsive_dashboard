@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_dashboard/views/widgets/all_expenses.dart';
 import 'package:responsive_dashboard/views/widgets/custom_darwer.dart';
 
 class DesktopDashboardLayout extends StatelessWidget {
@@ -9,6 +10,16 @@ class DesktopDashboardLayout extends StatelessWidget {
     return const Row(
       children: [
         Expanded(child: CustomDarwer()),
+        SizedBox(
+          width: 32,
+        ),
+        Expanded(
+            flex: 2,
+            child: Column(
+              children: [
+                Expanded(child: AllExpenses()),
+              ],
+            ))
       ],
     );
   }

@@ -19,6 +19,10 @@ class ActiveListTile extends StatelessWidget {
         drawerItemModel.title,
         style: AppStyles.styleBold16,
       ),
+      trailing: Container(
+        color: const Color(0xff4EB7F2),
+        width: 3.27,
+      ),
     );
   }
 }
