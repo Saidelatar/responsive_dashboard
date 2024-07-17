@@ -19,7 +19,10 @@ class AllExpensesItemHeader extends StatelessWidget {
             height: 60,
             decoration: const ShapeDecoration(
                 color: Color(0xffFAFAFA), shape: OvalBorder()),
-            child: SvgPicture.asset(image),
+            child: Padding(
+              padding: const EdgeInsets.all(12),
+              child: SvgPicture.asset(image),
+            ),
           ),
           const Spacer(),
           Transform.rotate(

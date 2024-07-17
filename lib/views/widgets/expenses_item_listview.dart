@@ -22,12 +22,26 @@ class AllExpensesItemListView extends StatelessWidget {
         date: 'April 2022',
         price: r'$20,129'),
   ];
+
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-        itemCount: expensesItem.length,
-        itemBuilder: (context, index) {
-          return AllExpensesItem(expensesItemModel: expensesItem[index]);
-        });
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+      child: Row(
+          children: expensesItem.asMap().entries.map((e) {
+        int index = e.key;
+        var item = e.value;
+        if (index == 1) {
+          return Expanded(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 12),
+              child: AllExpensesItem(expensesItemModel: item),
+            ),
+          );
+        } else {
+          return Expanded(child: AllExpensesItem(expensesItemModel: item));
+        }
+      }).toList()),
+    );
   }
 }
