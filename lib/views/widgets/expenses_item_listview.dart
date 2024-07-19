@@ -33,41 +33,37 @@ class _AllExpensesItemListViewState extends State<AllExpensesItemListView> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20.0),
-      child: Row(
-          children: expensesItem.asMap().entries.map((e) {
-        int index = e.key;
-        var item = e.value;
-        if (index == 1) {
-          return Expanded(
+    return Row(
+        children: expensesItem.asMap().entries.map((e) {
+      int index = e.key;
+      var item = e.value;
+      if (index == 1) {
+        return Expanded(
+          child: GestureDetector(
+            onTap: () {
+              setState(() {
+                selectedIndex = index;
+              });
+            },
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 12),
+              child: AllExpensesItem(
+                  isSelected: selectedIndex == index, expensesItemModel: item),
+            ),
+          ),
+        );
+      } else {
+        return Expanded(
             child: GestureDetector(
-              onTap: () {
-                setState(() {
-                  selectedIndex = index;
-                });
-              },
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 12),
+                onTap: () {
+                  setState(() {
+                    selectedIndex = index;
+                  });
+                },
                 child: AllExpensesItem(
                     isSelected: selectedIndex == index,
-                    expensesItemModel: item),
-              ),
-            ),
-          );
-        } else {
-          return Expanded(
-              child: GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      selectedIndex = index;
-                    });
-                  },
-                  child: AllExpensesItem(
-                      isSelected: selectedIndex == index,
-                      expensesItemModel: item)));
-        }
-      }).toList()),
-    );
+                    expensesItemModel: item)));
+      }
+    }).toList());
   }
 }

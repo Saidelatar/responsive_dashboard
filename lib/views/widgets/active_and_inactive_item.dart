@@ -24,7 +24,6 @@ class InActiveitem extends StatelessWidget {
       )),
       padding: const EdgeInsets.symmetric(horizontal: 12),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           AllExpensesItemHeader(
@@ -89,7 +88,6 @@ class Activeitem extends StatelessWidget {
           )),
       padding: const EdgeInsets.symmetric(horizontal: 12),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           AllExpensesItemHeader(
