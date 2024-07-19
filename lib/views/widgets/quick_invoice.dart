@@ -3,6 +3,7 @@ import 'package:responsive_dashboard/utils/app_styles.dart';
 import 'package:responsive_dashboard/views/widgets/custom_background_container.dart';
 import 'package:responsive_dashboard/views/widgets/latest_transaction.dart';
 import 'package:responsive_dashboard/views/widgets/quick_invoice_header.dart';
+import 'package:responsive_dashboard/views/widgets/title_text_field.dart';
 
 class QuickInvoice extends StatelessWidget {
   const QuickInvoice({super.key});
@@ -24,7 +25,7 @@ class QuickInvoice extends StatelessWidget {
               height: 48,
               color: Color(0xffF1F1F1),
             ),
-            TitleTextField(title: 'Customer name', hint: 'Type customer name'),
+            QuickInvoiceForm(),
           ],
         ),
       ),
@@ -32,50 +33,89 @@ class QuickInvoice extends StatelessWidget {
   }
 }
 
-class CustomTextField extends StatelessWidget {
-  final String hint;
-  const CustomTextField({super.key, required this.hint});
+class QuickInvoiceForm extends StatelessWidget {
+  const QuickInvoiceForm({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
-      decoration: InputDecoration(
-        border: buildBorder(),
-        enabledBorder: buildBorder(),
-        focusedBorder: buildBorder(),
-        filled: true,
-        fillColor: const Color(0xffFAFAFA),
-        hintText: hint,
-        hintStyle: AppStyles.styleRegular16,
-      ),
-    );
-  }
-}
-
-class TitleTextField extends StatelessWidget {
-  final String title, hint;
-  const TitleTextField({super.key, required this.title, required this.hint});
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
+    return const Column(
       children: [
-        Text(
-          title,
-          style: AppStyles.styleMedium16,
+        Row(
+          children: [
+            Expanded(
+                child: TitleTextField(
+                    title: 'Customer name', hint: 'Type customer name')),
+            SizedBox(
+              width: 16,
+            ),
+            Expanded(
+              child: TitleTextField(
+                  title: 'Customer Email', hint: 'Type customer Email'),
+            ),
+          ],
         ),
-        const SizedBox(
-          height: 12,
+        SizedBox(
+          height: 24,
         ),
-        CustomTextField(hint: hint),
+        Row(
+          children: [
+            Expanded(
+                child: TitleTextField(title: 'Item name', hint: 'Item mount')),
+            SizedBox(
+              width: 16,
+            ),
+            Expanded(child: TitleTextField(title: 'Item mount', hint: 'USD')),
+          ],
+        ),
+        SizedBox(
+          height: 24,
+        ),
+        Row(
+          children: [
+            Expanded(
+                child: CustomButton(
+              title: 'Add more details',
+              backgrounColor: Colors.white,
+            )),
+            SizedBox(
+              width: 16,
+            ),
+            Expanded(
+                child: CustomButton(
+              title: 'Send Money',
+              textColor: Color(0xffffffff),
+            )),
+          ],
+        ),
       ],
     );
   }
 }
 
-OutlineInputBorder buildBorder() {
-  return OutlineInputBorder(
-    borderRadius: BorderRadius.circular(10),
-    borderSide: const BorderSide(color: Colors.black, width: 1),
-  );
+class CustomButton extends StatelessWidget {
+  final String title;
+  final Color? backgrounColor, textColor;
+
+  const CustomButton(
+      {super.key, required this.title, this.backgrounColor, this.textColor});
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 62,
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          elevation: 0,
+          backgroundColor: backgrounColor ?? const Color(0xff4EB7F2),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        ),
+        onPressed: () {},
+        child: Text(title,
+            style: AppStyles.styleSemiBold18.copyWith(
+              color: textColor,
+            )),
+      ),
+    );
+  }
 }
