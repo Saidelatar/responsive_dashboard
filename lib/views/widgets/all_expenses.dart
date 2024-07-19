@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:responsive_dashboard/views/widgets/all_expenses_header.dart';
+import 'package:responsive_dashboard/views/widgets/custom_background_container.dart';
 import 'package:responsive_dashboard/views/widgets/expenses_item_listview.dart';
 
 class AllExpenses extends StatelessWidget {
@@ -8,12 +9,8 @@ class AllExpenses extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(12),
-      ),
-      child: const Column(
+    return const CustomBackgroundContainer(
+      child: Column(
         children: [
           AallExpensesHeader(),
           AllExpensesItemListView(),
