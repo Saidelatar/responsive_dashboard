@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:responsive_dashboard/views/widgets/all_expenses.dart';
+import 'package:flutter/widgets.dart';
+import 'package:responsive_dashboard/views/widgets/all_expenses_quick_invoice_section.dart';
 import 'package:responsive_dashboard/views/widgets/custom_darwer.dart';
-import 'package:responsive_dashboard/views/widgets/quick_invoice.dart';
+import 'package:responsive_dashboard/views/widgets/my_card.dart';
 
 class DesktopDashboardLayout extends StatelessWidget {
   const DesktopDashboardLayout({super.key});
@@ -15,42 +16,10 @@ class DesktopDashboardLayout extends StatelessWidget {
           width: 32,
         ),
         Expanded(
-            flex: 2,
-            child: CustomScrollView(
-              slivers: [
-                SliverToBoxAdapter(
-                  child: SizedBox(
-                    height: 40,
-                  ),
-                ),
-                SliverToBoxAdapter(
-                  child: AllExpenses(),
-                ),
-                SliverToBoxAdapter(
-                  child: SizedBox(
-                    height: 24,
-                  ),
-                ),
-                SliverFillRemaining(
-                  hasScrollBody: false,
-                  child: Expanded(child: QuickInvoice()),
-                )
-              ],
-            )
-
-            /* Column(
-              children: [
-                SizedBox(
-                  height: 40,
-                ),
-                AllExpenses(),
-                SizedBox(
-                  height: 24,
-                ),
-                QuickInvoice(),
-              ],
-            )*/
-            )
+          flex: 2,
+          child: AllExpensesQuickInvoiceSection(),
+        ),
+        Expanded(child: MyCard()),
       ],
     );
   }
