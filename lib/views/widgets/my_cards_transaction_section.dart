@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:responsive_dashboard/views/widgets/custom_background_container.dart';
 import 'package:responsive_dashboard/views/widgets/income_sectio.dart';
 import 'package:responsive_dashboard/views/widgets/my_cards_section.dart';
-import 'package:responsive_dashboard/views/widgets/transaction_history.dart';
 
 class MyCardsTransactionSection extends StatelessWidget {
   const MyCardsTransactionSection({super.key});
