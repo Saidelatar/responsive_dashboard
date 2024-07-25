@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:responsive_dashboard/models/drawer_item_model.dart';
 import 'package:responsive_dashboard/models/user_info_model.dart';
 import 'package:responsive_dashboard/utils/app_images.dart';
+import 'package:responsive_dashboard/views/widgets/custom_background_container.dart';
 import 'package:responsive_dashboard/views/widgets/drawer_item_listview.dart';
 import 'package:responsive_dashboard/views/widgets/inactive_list_tile.dart';
 import 'package:responsive_dashboard/views/widgets/user_info_list_tile.dart';
@@ -11,8 +12,7 @@ class CustomDarwer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.white,
+    return CustomBackgroundContainer(
       child: CustomScrollView(
         slivers: [
           SliverToBoxAdapter(
@@ -39,7 +39,10 @@ class CustomDarwer extends StatelessWidget {
               padding: EdgeInsets.only(left: 28),
               child: Column(
                 children: [
-                  Expanded(child: SizedBox()),
+                  Expanded(
+                      child: SizedBox(
+                    height: 20,
+                  )),
                   InActiveListTile(
                       drawerItemModel: DrawerItemModel(
                           image: Assets.imagesSetting2,
@@ -47,15 +50,13 @@ class CustomDarwer extends StatelessWidget {
                   InActiveListTile(
                       drawerItemModel: DrawerItemModel(
                           image: Assets.imagesLogout, title: 'Logout account')),
+                  SizedBox(
+                    height: 48,
+                  )
                 ],
               ),
             ),
           ),
-          const SliverToBoxAdapter(
-            child: SizedBox(
-              height: 48,
-            ),
-          )
         ],
       ),
     );

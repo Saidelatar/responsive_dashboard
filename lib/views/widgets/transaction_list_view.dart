@@ -23,12 +23,18 @@ class TransactionListView extends StatelessWidget {
   ];
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
+    return Column(
+      children: items.map((e) => TransactionItem(transactionModel: e)).toList(),
+    );
+
+    /*SliverList.builder(
         itemCount: items.length,
-        scrollDirection: Axis.vertical,
-        shrinkWrap: true,
         itemBuilder: (context, index) {
           return TransactionItem(transactionModel: items[index]);
-        });
+        });**/
+
+    /*Column(
+      children: items.map((e) => TransactionItem(transactionModel: e)).toList(),
+    );*/
   }
 }

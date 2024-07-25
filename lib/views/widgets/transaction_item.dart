@@ -4,7 +4,10 @@ import 'package:responsive_dashboard/utils/app_styles.dart';
 
 class TransactionItem extends StatelessWidget {
   final TransactionModel transactionModel;
-  const TransactionItem({super.key, required this.transactionModel});
+  const TransactionItem({
+    super.key,
+    required this.transactionModel,
+  });
 
   @override
   Widget build(BuildContext context) {

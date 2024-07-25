@@ -2,8 +2,10 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:responsive_dashboard/views/widgets/custom_background_container.dart';
-import 'package:responsive_dashboard/views/widgets/income_sectio.dart';
+import 'package:responsive_dashboard/views/widgets/income_chart.dart';
+import 'package:responsive_dashboard/views/widgets/income_section.dart';
 import 'package:responsive_dashboard/views/widgets/my_cards_section.dart';
+import 'package:responsive_dashboard/views/widgets/transaction_history.dart';
 
 class MyCardsTransactionSection extends StatelessWidget {
   const MyCardsTransactionSection({super.key});
@@ -18,11 +20,7 @@ class MyCardsTransactionSection extends StatelessWidget {
           height: 40,
           color: Color(0xffF1F1F1),
         ),
-        // TransactionHistory(),
-        SizedBox(
-          height: 24,
-        ),
-        Expanded(child: IncomeSection()),
+        TransactionHistory(),
       ],
     ));
   }
