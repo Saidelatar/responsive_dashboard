@@ -18,44 +18,40 @@ class DesktopDashboardLayout extends StatelessWidget {
           width: 32,
         ),
         Expanded(
-          flex: 2,
-          child: Padding(
-            padding: EdgeInsets.only(top: 40, bottom: 32),
-            child: AllExpensesQuickInvoiceSection(),
-          ),
-        ),
-        SizedBox(
-          width: 24,
-        ),
-        Expanded(
-          flex: 1,
+          flex: 3,
           child: CustomScrollView(
             slivers: [
-              SliverToBoxAdapter(
-                child: SizedBox(
-                  height: 40,
-                ),
-              ),
-              SliverToBoxAdapter(
-                child: MyCardsTransactionSection(),
-              ),
-              SliverToBoxAdapter(
-                child: SizedBox(
-                  height: 22,
-                ),
-              ),
               SliverFillRemaining(
                 hasScrollBody: false,
-                child: IncomeSection(),
-              ),
-              SliverToBoxAdapter(
-                child: SizedBox(
-                  height: 15,
+                child: Row(
+                  children: [
+                    Expanded(
+                        flex: 2,
+                        child: Padding(
+                            padding: EdgeInsets.only(top: 40),
+                            child: AllExpensesQuickInvoiceSection())),
+                    SizedBox(
+                      width: 24,
+                    ),
+                    Expanded(
+                        child: Column(
+                      children: [
+                        SizedBox(
+                          height: 40,
+                        ),
+                        MyCardsTransactionSection(),
+                        SizedBox(
+                          height: 24,
+                        ),
+                        Expanded(child: IncomeSection()),
+                      ],
+                    )),
+                  ],
                 ),
               )
             ],
           ),
-        ),
+        )
 
         /*Expanded(
           flex: 1,

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_dashboard/views/widgets/all_expenses_quick_invoice_section.dart';
 import 'package:responsive_dashboard/views/widgets/custom_darwer.dart';
+import 'package:responsive_dashboard/views/widgets/dashboard_mobile_layout.dart';
+import 'package:responsive_dashboard/views/widgets/income_section.dart';
 import 'package:responsive_dashboard/views/widgets/my_cards_transaction_section.dart';
 
-class TabletDashboardLayout extends StatelessWidget {
-  const TabletDashboardLayout({super.key});
+class DashboardTabletLayout extends StatelessWidget {
+  const DashboardTabletLayout({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,14 +16,7 @@ class TabletDashboardLayout extends StatelessWidget {
         SizedBox(
           width: 32,
         ),
-        Expanded(
-          child: Column(
-            children: [
-              Expanded(flex: 2, child: AllExpensesQuickInvoiceSection()),
-              Expanded(child: MyCardsTransactionSection())
-            ],
-          ),
-        ),
+        Expanded(flex: 3, child: DashboardMobileLayout()),
         SizedBox(
           width: 32,
         ),

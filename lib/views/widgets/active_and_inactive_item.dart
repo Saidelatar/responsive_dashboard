@@ -35,7 +35,7 @@ class InActiveitem extends StatelessWidget {
             padding: const EdgeInsets.only(top: 16, right: 20, left: 20),
             child: Text(
               expensesItemModel.title,
-              style: AppStyles.styleSemiBold16,
+              style: AppStyles.styleSemiBold16(context),
             ),
           ),
           const SizedBox(
@@ -45,7 +45,7 @@ class InActiveitem extends StatelessWidget {
             padding: const EdgeInsets.only(top: 16, right: 20, left: 20),
             child: Text(
               expensesItemModel.date,
-              style: AppStyles.styleRegular14,
+              style: AppStyles.styleRegular14(context),
             ),
           ),
           const SizedBox(
@@ -56,7 +56,7 @@ class InActiveitem extends StatelessWidget {
                 const EdgeInsets.only(top: 16, bottom: 16, right: 20, left: 20),
             child: Text(
               expensesItemModel.price,
-              style: AppStyles.styleSemiBold24
+              style: AppStyles.styleSemiBold24(context)
                   .copyWith(color: const Color(0xff4EB7F2)),
             ),
           ),
@@ -100,7 +100,8 @@ class Activeitem extends StatelessWidget {
             padding: const EdgeInsets.only(top: 16, right: 20, left: 20),
             child: Text(
               expensesItemModel.title,
-              style: AppStyles.styleSemiBold16.copyWith(color: Colors.white),
+              style: AppStyles.styleSemiBold16(context)
+                  .copyWith(color: Colors.white),
             ),
           ),
           const SizedBox(
@@ -110,7 +111,7 @@ class Activeitem extends StatelessWidget {
             padding: const EdgeInsets.only(top: 16, right: 20, left: 20),
             child: Text(
               expensesItemModel.date,
-              style: AppStyles.styleRegular14.copyWith(
+              style: AppStyles.styleRegular14(context).copyWith(
                 color: const Color(0xffFAFAFA),
               ),
             ),
@@ -123,7 +124,7 @@ class Activeitem extends StatelessWidget {
                 const EdgeInsets.only(top: 16, bottom: 16, right: 20, left: 20),
             child: Text(
               expensesItemModel.price,
-              style: AppStyles.styleSemiBold24
+              style: AppStyles.styleSemiBold24(context)
                   .copyWith(color: const Color(0xffffffff)),
             ),
           ),
